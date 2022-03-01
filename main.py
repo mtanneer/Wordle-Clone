@@ -1,44 +1,57 @@
 from wordlist import *
-import math,string,random
+import math,string,random,time,sys
 
-
+def loading(a_list):
+    #print "Loading..."
+    #for i in range(len(a_list)):
+    time.sleep(0.1)
+    sys.stdout.write(u"\u001b[1000D") 
+    sys.stdout.write(str(a_list))
+    sys.stdout.flush()
+    print()
 
 if __name__ == '__main__' :
     count = 0
+    a_list = list(string.ascii_lowercase)
     ans = random.choice(word_list)
-    # print(ans)
+    ans = "speed"
+    print(ans)
     list_ans = list(ans)
     print("Enter a 5 letter word:")
+    
     while(1):
+        loading(a_list)
         if(count == 6):
             print(u"Out of tries:( But the word was\u001b[32m %s\u001b[0m " % ans)
             break
-
+        
         word = input()
-        if(word not in word_list):
-            print("Word is not valid")
-            continue
         list_in = list(word)
-
+        #print(word)
         if(len(word) == 5):
-            for k in list_in:
-               if(k in list_ans):
-                   in_i = list_in.index(k)
-                   ans_i = list_ans.index(k)
-                   if(in_i == ans_i):
-                       print(u"\u001b[32m %s\u001b[0m" % k,end='')
-                   else:
-                       print(u"\u001b[33m %s\u001b[0m" % k,end='')
-               else:
-                   print(" %s" % k,end='')
+            if(word not in word_list):
+                print(word +" is not valid")
+                continue
+            
+            for i in range(len(list_in)):
+                if(list_in[i] == list_ans[i]):
+                    print(u"\u001b[32m %s\u001b[0m" % list_in[i],end='')
+                elif(list_in[i] in list_ans):
+                    print(u"\u001b[33m %s\u001b[0m" % list_in[i],end='')
+                else:
+                    print(" %s" % list_in[i],end='')
+                    if(list_in[i] in a_list):
+                        a_list.remove(list_in[i])
+
             print("",end='\n')         
+            
             if(word == ans):
-                count+=1
+                count += 1
                 print("Congrats")
                 break
             else:
-                count+=1
-                # print("nope")
+                count += 1
+                
 
         else:
             print("Word needs to exactly 5 letters long")
