@@ -12,24 +12,31 @@ def loading(a_list):
 
 if __name__ == '__main__' :
     count = 0
+    count2 = 0
     a_list = list(string.ascii_lowercase)
     ans = random.choice(word_list)
-    ans = "speed"
-    print(ans)
+    #ans = "speed"
+    #print(ans)
     list_ans = list(ans)
     print("Enter a 5 letter word:")
-    
+    #sys.stdout.write(u"\u001b[B")
     while(1):
-        loading(a_list)
+        #sys.stdout.write(u"\u001b[1000D") 
+        # sys.stdout.write(u"\u001b["+ str(count2) +"A") 
+        # if(count):
+            # loading(a_list)
+        
         if(count == 6):
             print(u"Out of tries:( But the word was\u001b[32m %s\u001b[0m " % ans)
             break
         
         word = input()
         list_in = list(word)
+        sys.stdout.write(u"\u001b[A")
         #print(word)
         if(len(word) == 5):
             if(word not in word_list):
+                count2 += 1
                 print(word +" is not valid")
                 continue
             
@@ -56,7 +63,7 @@ if __name__ == '__main__' :
         else:
             print("Word needs to exactly 5 letters long")
             continue
-
+        #count2 += 1
         
         
         
