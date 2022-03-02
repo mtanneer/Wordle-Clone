@@ -23,8 +23,7 @@ if __name__ == '__main__' :
     while(1):
         #sys.stdout.write(u"\u001b[1000D") 
         # sys.stdout.write(u"\u001b["+ str(count2) +"A") 
-        # if(count):
-            # loading(a_list)
+
         
         if(count == 6):
             print(u"Out of tries:( But the word was\u001b[32m %s\u001b[0m " % ans)
@@ -32,14 +31,18 @@ if __name__ == '__main__' :
         
         word = input()
         list_in = list(word)
+        #sys.stdout.write(u"\u001b["+str(count2)+"A")
         sys.stdout.write(u"\u001b[A")
+        
         #print(word)
         if(len(word) == 5):
             if(word not in word_list):
                 count2 += 1
                 print(word +" is not valid")
-                continue
-            
+                continue  
+            if(count):
+                loading(a_list)
+            count2 = 0
             for i in range(len(list_in)):
                 if(list_in[i] == list_ans[i]):
                     print(u"\u001b[32m %s\u001b[0m" % list_in[i],end='')
