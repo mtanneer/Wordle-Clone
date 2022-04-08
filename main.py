@@ -40,8 +40,8 @@ if __name__ == '__main__' :
                 count2 += 1
                 print(word +" is not valid")
                 continue  
-            if(count):
-                loading(a_list)
+            # if(count):
+                # loading(a_list)
             count2 = 0
             for i in range(len(list_in)):
                 if(list_in[i] == list_ans[i]):
