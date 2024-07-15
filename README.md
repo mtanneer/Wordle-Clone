@@ -6,7 +6,7 @@ Inspired by [Wordle](https://www.nytimes.com/games/wordle/index.html).
 Clone this repository using the following commands in a Unix Shell.
 ### Using SSH
 ```
-git clobe git@github.com:mtanneer/Wordle-Clone.git
+git clone git@github.com:mtanneer/Wordle-Clone.git
 ```
 ### Using HTTPS
 ```
